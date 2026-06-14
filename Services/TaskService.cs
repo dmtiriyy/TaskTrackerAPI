@@ -25,6 +25,21 @@ public class TaskService : ITaskService
         {
             queryable = queryable.Where(task => task.Title.Contains(query.Search));
         }
+
+        if (query.SortBy == "title")
+        {
+            queryable = query.SortDirection == "desc" ? queryable.OrderByDescending(task => task.Title) : queryable.OrderBy(task => task.Title);
+        }
+
+        if (query.SortBy == "createdAt")
+        {
+            queryable = query.SortDirection == "desc" ? queryable.OrderByDescending(task => task.CreatedAt ) : queryable.OrderBy(task => task.CreatedAt);
+        }
+
+        if (query.SortBy == "isCompleted")
+        {
+            queryable = query.SortDirection == "desc" ? queryable.OrderByDescending(task => task.IsCompleted) : queryable.OrderBy(task => task.IsCompleted);
+        }
         var tasks = await queryable.ToListAsync();
         var response = new List<TaskResponse>();
 
