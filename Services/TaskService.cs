@@ -18,9 +18,14 @@ public class TaskService : ITaskService
         var queryable = _context.TaskItems.AsQueryable();
         if (query.IsCompleted != null)
         {
-            
+            queryable = queryable.Where(task => task.IsCompleted == query.IsCompleted.Value);
         }
-        var tasks = await _context.TaskItems.ToListAsync();
+
+        if (!string.IsNullOrWhiteSpace(query.Search))
+        {
+            queryable = queryable.Where(task => task.Title.Contains(query.Search));
+        }
+        var tasks = await queryable.ToListAsync();
         var response = new List<TaskResponse>();
 
         for (int i = 0; i < tasks.Count; i++)

@@ -154,3 +154,4 @@ C:\Users\dima2\Desktop\learn\TaskTrackerApi\obj\Debug\net9.0\ref\TaskTrackerApi.
 C:\Users\dima2\Desktop\learn\TaskTrackerApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\dima2\Desktop\learn\TaskTrackerApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\dima2\Desktop\learn\TaskTrackerApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\dima2\Desktop\learn\TaskTrackerApi\obj\Debug\net9.0\TaskTrackerApi.sourcelink.json

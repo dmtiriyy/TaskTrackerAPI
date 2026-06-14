@@ -15,9 +15,9 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet]
-   public async Task<ActionResult<List<TaskResponse>>> GetTasks()
+   public async Task<ActionResult<List<TaskResponse>>> GetTasks([FromQuery] TaskQueryParameters query)
    {
-      var taskResponse = await _taskService.GetAllAsync();
+      var taskResponse = await _taskService.GetAllAsync(query);
       
       return Ok(taskResponse);
    }
