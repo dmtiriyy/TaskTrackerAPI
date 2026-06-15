@@ -40,6 +40,9 @@ public class TaskService : ITaskService
         {
             queryable = query.SortDirection == "desc" ? queryable.OrderByDescending(task => task.IsCompleted) : queryable.OrderBy(task => task.IsCompleted);
         }
+        queryable = queryable
+            .Skip((query.Page - 1) * query.PageSize)
+            .Take(query.PageSize);
         var tasks = await queryable.ToListAsync();
         var response = new List<TaskResponse>();
 
